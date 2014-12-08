@@ -12,7 +12,25 @@ by Marco Berube
 #################################################################
 =end
 
-require 'automate.config'
+
+# BASE FOLDER
+BASE="/git"
+
+# GIT CONFIGURATION SETTINGS
+GIT_USERNAME="<your_username>"   
+GIT_PASSWORD="<your_password>"
+GIT_REPO="CloudFormsPOC"
+GIT_DOMAIN_ROOT="CloudFormsPOC/Automate"
+GIT_URL="github.com/#{GIT_USERNAME}/#{GIT_REPO}.git"
+GIT_BRANCH="master"
+
+# CLOUDFORMS DOMAIN THAT YOU WANT TO SYNC ON GIT, 
+# CURRENTLY LIMITED TO ONLY ONE DOMAIN FROM YOUR DATASTORE
+CFME_DOMAIN="CloudFormsPOC"
+
+# TEMPORARY FOLDER TO EXTRACT DATASTORE FILES
+DSDUMP_PATH="/git/localdomains"
+
 
 #
 #   EXPORT CLOUDFORMS DATASTORE IN A TEMPORARY FOLDER : #{DSDUMP_PATH}
