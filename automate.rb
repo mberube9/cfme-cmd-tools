@@ -12,7 +12,26 @@ by Marco Berube
 #################################################################
 =end
 
-require 'automate.config'
+require 'yaml'
+
+yaml_path = File.dirname($0) + '/automate.yaml'
+automate_config = YAML.load_file(yaml_path)
+
+# GENERAL CONFIGURATION
+BASE = automate_config['general']['base']
+DSDUMP_PATH = automate_config['general']['temp']
+
+# GIT CONFIGURATION
+GIT_USERNAME = automate_config['git']['username']
+GIT_PASSWORD = automate_config['git']['password']
+GIT_REPO = automate_config['git']['repo']
+GIT_DOMAIN_ROOT = automate_config['git']['domain_root']
+GIT_URL = automate_config['git']['url'] + "/#{GIT_USERNAME}/#{GIT_REPO}.git"
+GIT_BRANCH = automate_config['git']['branch']
+
+# CFME CONFIGURATION
+CFME_DOMAIN = automate_config['cfme']['domain']
+
 
 #
 #   EXPORT CLOUDFORMS DATASTORE IN A TEMPORARY FOLDER : #{DSDUMP_PATH}

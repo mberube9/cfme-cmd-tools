@@ -1,0 +1,18 @@
+
+# AUTOMATE CONFIGURATION FILE
+
+general:
+	base: /git
+	temp: /git/temp
+
+git:
+	username: your_usernmae
+	password: your_password
+	repo: CloudFormsPOC
+	domain_root: CloudFormsPOC/Automate
+	url: github.com
+	branch: master
+
+cfme:
+	domain: CloudFormsPOC
+
