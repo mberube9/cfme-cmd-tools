@@ -12,10 +12,11 @@ by Marco Berube
 #################################################################
 =end
 
-require 'yaml'
 
+require 'yaml'
 yaml_path = File.dirname($0) + '/automate.yaml'
 automate_config = YAML.load_file(yaml_path)
+
 
 # GENERAL CONFIGURATION
 BASE = automate_config['general']['base']
