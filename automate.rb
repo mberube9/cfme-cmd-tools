@@ -62,10 +62,12 @@ case ARGV[0]
 
 	when "git-push"
 
+		puts "Enter a comment for this push:"
+		mycomment = gets.chomp
 		dsdump()
 		system ("rsync -av #{DSDUMP_PATH}/#{CFME_DOMAIN} #{BASE}/#{GIT_USERNAME}/#{GIT_DOMAIN_ROOT}")
 		system ("cd #{BASE}/#{GIT_USERNAME}/#{GIT_REPO}/ && git add -A")
-		system ("cd #{BASE}/#{GIT_USERNAME}/#{GIT_REPO}/ && git commit -m 'Cloudforms Automate Model Sync'")
+		system ("cd #{BASE}/#{GIT_USERNAME}/#{GIT_REPO}/ && git commit -m '#{mycomment}'")
 		system ("cd #{BASE}/#{GIT_USERNAME}/#{GIT_REPO}/ && git remote set-url origin https://#{GIT_USERNAME}:#{GIT_PASSWORD}@#{GIT_URL}")
 		system ("cd #{BASE}/#{GIT_USERNAME}/#{GIT_REPO}/ && git push")
 
