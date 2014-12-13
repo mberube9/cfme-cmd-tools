@@ -52,7 +52,8 @@ case ARGV[0]
 		dsdump()
 
 	when "git-pull"
-
+		
+		dsdump()
 		system ("rm -rf #{BASE}/#{GIT_USERNAME}")
 		system ("mkdir -p #{BASE}/#{GIT_USERNAME}")
 		system ("cd #{BASE}/#{GIT_USERNAME} && git clone -b #{GIT_BRANCH} https://#{GIT_URL}")
