@@ -37,6 +37,8 @@ SYNTAX :
    automate  [provide list of available commands]
    
    automate dsdump  [dump your automate model in a temporary folder: default = /git/temp]
+
+   automate dsupload	[upload datastore from temporary folder to your automate domain]
    
    automate git-pull  [pull your automate domain from git and rsync it to your Cloudforms datastore]
    
