@@ -8,16 +8,20 @@ Installation
 ============
 
 CREATE YOUR GIT FOLDER ON YOUR CLOUDFORMS APPLIANCE:
+
 mkdir /git
 
 PULL THIS PROJECT INTO YOUR GIT FOLDER
+
 cd /git
 git clone https://github.com/mberube9/cfme-cmd-tools.git
 
 ADD THE COMMAND LINE TOOLS IN YOUR PATH (OPTIONAL)
+
 export PATH=$PATH:/git/cfme-cmd-tools
 
 UPDATE THE AUTOMATE CONFIGURATION FILE WITH YOUR SETTINGS
+
 vi /git/cfme-cmd-tools/automate.yaml
 
 
