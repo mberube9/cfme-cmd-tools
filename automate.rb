@@ -44,12 +44,19 @@ def dsdump()
 	system ("unzip /git/backup_exported.zip -d #{DSDUMP_PATH}/")
 end
 
+def dsupload()
+	system ("cd #{DSDUMP_PATH} && zip -r #{BASE}/backup_imported.zip ./*")
+	system ("cd /var/www/miq/vmdb && script/rails runner script/rake evm:automate:restore BACKUP_ZIP_FILE=#{BASE}/backup_imported.zip")
+end
 
 
 case ARGV[0]
 
 	when "dsdump"
 		dsdump()
+
+	when "dsupload"
+		dsupload()
 
 	when "git-pull"
 		
@@ -58,8 +65,7 @@ case ARGV[0]
 		system ("mkdir -p #{BASE}/#{GIT_USERNAME}")
 		system ("cd #{BASE}/#{GIT_USERNAME} && git clone -b #{GIT_BRANCH} https://#{GIT_URL}")
 		system ("rsync -av #{BASE}/#{GIT_USERNAME}/#{GIT_DOMAIN_ROOT}/#{CFME_DOMAIN} #{DSDUMP_PATH}")
-		system ("cd #{DSDUMP_PATH} && zip -r #{BASE}/backup_imported.zip ./*")
-	    system ("cd /var/www/miq/vmdb && script/rails runner script/rake evm:automate:restore BACKUP_ZIP_FILE=#{BASE}/backup_imported.zip")
+		dsupload()
 
 	when "git-push"
 
@@ -76,6 +82,7 @@ case ARGV[0]
 
 		puts "automate <subcommand>"
 		puts "	dsdump 		Datastore dump in a temporary folder: #{DSDUMP_PATH}"
+		puts "	dsupload	Upload datastore from temporary folder to your automate domain"
 		puts "	git-pull	Pull git updates into Cloudforms DB"
 		puts "	git-push	Push Cloudforms DB updates to git repo"
 
