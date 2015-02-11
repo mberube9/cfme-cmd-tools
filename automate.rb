@@ -73,10 +73,10 @@ case ARGV[0]
 		mycomment = $stdin.gets.chomp
 		dsdump()
 		# PULL LATEST GIT REPO
-                system ("rm -rf #{BASE}/#{GIT_USERNAME}")
-                system ("mkdir -p #{BASE}/#{GIT_USERNAME}")
-                system ("cd #{BASE}/#{GIT_USERNAME} && git clone -b #{GIT_BRANCH} https://#{GIT_URL}")
-                system ("rsync -av #{BASE}/#{GIT_USERNAME}/#{GIT_DOMAIN_ROOT}/#{CFME_DOMAIN} #{DSDUMP_PATH}")
+        system ("rm -rf #{BASE}/#{GIT_USERNAME}")
+        system ("mkdir -p #{BASE}/#{GIT_USERNAME}")
+        system ("cd #{BASE}/#{GIT_USERNAME} && git clone -b #{GIT_BRANCH} https://#{GIT_URL}")
+
 		# RSYNC AND COMMIT
 		system ("rsync -av #{DSDUMP_PATH}/#{CFME_DOMAIN} #{BASE}/#{GIT_USERNAME}/#{GIT_DOMAIN_ROOT}")
 		system ("cd #{BASE}/#{GIT_USERNAME}/#{GIT_REPO}/ && git add -A")
