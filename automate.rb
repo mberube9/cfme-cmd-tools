@@ -1,4 +1,4 @@
-#!/opt/rh/ruby193/root/usr/bin/ruby
+#!/opt/rh/ruby200/root/usr/bin/ruby
 =begin
 #################################################################
 
